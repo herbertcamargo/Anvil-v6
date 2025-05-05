@@ -1,41 +1,55 @@
 components:
 - components:
-  - components: []
-    layout_properties: {width: 132}
+  - components:
+    - layout_properties: {grid_position: 'HCWFHA,IGQPWO'}
+      name: official_input_box
+      properties:
+        margin: ['20', '0', '10', '10']
+      type: TextBox
+    - data_bindings: []
+      layout_properties: {grid_position: 'YWITLX,SIOAXT'}
+      name: user_input_box
+      properties:
+        auto_expand: false
+        height: '100'
+        margin: [null, '20', '20', '10']
+      type: TextArea
+    - layout_properties: {grid_position: 'TEWYML,RQLRRZ'}
+      name: compare_button
+      properties:
+        spacing:
+          margin: [null, null, '20', '10']
+        text: button_1
+      type: Button
+    - layout_properties: {grid_position: 'FKZTAU,SFRWYI'}
+      name: comparison_output
+      properties:
+        spacing:
+          margin: [null, '20', '20', '20']
+      type: RichText
+    - layout_properties: {grid_position: 'GVYVQS,CNSQGY'}
+      name: accuracy_label
+      properties:
+        spacing:
+          margin: [null, '5', '20', '20']
+      type: Label
+    layout_properties: {width: 1056.4749755859375}
     name: content_panel
     properties:
+      col_spacing: medium
       col_widths: '{}'
       spacing:
-        margin: ['50', 0, '20', null]
-        padding: [null, null, '200', null]
+        margin: ['50', '0', '20', '20']
+        padding: ['20', '20', '20', '5']
+      spacing_above: small
       visible: true
     type: ColumnPanel
-  - data_bindings: []
-    name: user_input_box
-    properties:
-      height: '100'
-      margin: [null, null, null, '20']
-    type: TextArea
-  - name: comparison_output
-    properties:
-      spacing:
-        margin: [null, null, null, '20']
-    type: RichText
-  - name: compare_button
-    properties:
-      spacing:
-        margin: [null, null, null, '20']
-      text: button_1
-    type: Button
-  - name: official_input_box
-    properties:
-      margin: ['20', null, '10', '20']
-    type: TextBox
   layout_properties: {slot: nav-right}
   name: navbar_links
   properties:
     spacing:
       margin: ['20', '50', null, '50']
+      padding: [null, null, '150', null]
   type: FlowPanel
 container:
   properties: {html: '@theme:standard-page.html'}
