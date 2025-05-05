@@ -1,0 +1,112 @@
+components:
+- type: form:dep_gqlhr7sei7ys7:_Components.Card
+  name: top_bar_card
+  properties: {role: elevated, margin: ['16', '0', '16', '0']}
+  components:
+    - type: form:dep_gqlhr7sei7ys7:_Components.Text
+      name: title_text
+      properties: {text: 'Transcription Practice', font_size: 24, bold: true, align: left}
+      layout_properties: {slot: card-content-slot}
+    - type: form:dep_gqlhr7sei7ys7:_Components.Dropdown
+      name: language_dropdown
+      properties: {items: ['EN', 'ES'], selected_value: 'EN', align: right, width: 100}
+      layout_properties: {slot: card-content-slot}
+  layout_properties: {grid_position: 'A', full_width_row: true}
+- type: form:dep_gqlhr7sei7ys7:_Components.Card
+  name: search_card
+  properties: {role: outlined, margin: ['0', '0', '16', '0']}
+  components:
+    - type: form:dep_gqlhr7sei7ys7:_Components.Text
+      name: search_title
+      properties: {text: 'Search for Videos', font_size: 18, bold: true}
+      layout_properties: {slot: card-content-slot}
+    - type: form:dep_gqlhr7sei7ys7:_Components.TextBox
+      name: search_input
+      properties: {placeholder: 'Enter search keywords...'}
+      layout_properties: {slot: card-content-slot}
+    - type: form:dep_gqlhr7sei7ys7:_Components.Button
+      name: search_button
+      properties: {text: 'Search', role: filled, icon: 'fa:search'}
+      layout_properties: {slot: card-content-slot}
+    - type: form:dep_gqlhr7sei7ys7:_Components.ColumnPanel
+      name: search_results_panel
+      properties: {}
+      layout_properties: {slot: card-content-slot}
+  layout_properties: {full_width_row: true}
+- type: form:dep_gqlhr7sei7ys7:_Components.Card
+  name: video_transcription_card
+  properties: {role: elevated, visible: false, margin: ['0', '0', '16', '0']}
+  components:
+    - type: form:dep_gqlhr7sei7ys7:_Components.ColumnPanel
+      name: video_transcription_columns
+      properties: {spacing_above: small, spacing_below: small}
+      components:
+        - type: form:dep_gqlhr7sei7ys7:_Components.Column
+          name: video_column
+          properties: {width: 6}
+          components:
+            - type: form:dep_gqlhr7sei7ys7:_Components.Text
+              name: video_title
+              properties: {text: 'Video Title', font_size: 16, bold: true}
+            - type: form:dep_gqlhr7sei7ys7:_Components.HtmlPanel
+              name: video_player_panel
+              properties: {height: 315}
+        - type: form:dep_gqlhr7sei7ys7:_Components.Column
+          name: transcription_column
+          properties: {width: 6}
+          components:
+            - type: form:dep_gqlhr7sei7ys7:_Components.Text
+              name: transcription_title
+              properties: {text: 'Transcription', font_size: 16, bold: true}
+            - type: form:dep_gqlhr7sei7ys7:_Components.TextArea
+              name: transcription_input
+              properties: {placeholder: 'Type your transcription here...', rows: 10}
+    - type: form:dep_gqlhr7sei7ys7:_Components.ColumnPanel
+      name: controls_stats_panel
+      properties: {spacing_above: small, spacing_below: small}
+      components:
+        - type: form:dep_gqlhr7sei7ys7:_Components.Column
+          name: controls_column
+          properties: {width: 6}
+          components:
+            - type: form:dep_gqlhr7sei7ys7:_Components.Text
+              name: pause_delay_label
+              properties: {text: 'Pause Delay'}
+            - type: form:dep_gqlhr7sei7ys7:_Components.Dropdown
+              name: pause_delay_dropdown
+              properties: {items: ['0 seconds', '1 second', '2 seconds', '3 seconds', '5 seconds'], selected_value: '0 seconds'}
+            - type: form:dep_gqlhr7sei7ys7:_Components.Text
+              name: rewind_time_label
+              properties: {text: 'Rewind Time'}
+            - type: form:dep_gqlhr7sei7ys7:_Components.Dropdown
+              name: rewind_time_dropdown
+              properties: {items: ['0.0 seconds', '0.25 seconds', '0.5 seconds', '0.75 seconds', '1 second', '1.5 seconds', '2 seconds', '3 seconds', '5 seconds', '8 seconds', '10 seconds'], selected_value: '0.0 seconds'}
+            - type: form:dep_gqlhr7sei7ys7:_Components.Button
+              name: rewind_button
+              properties: {text: 'Rewind', role: outlined}
+            - type: form:dep_gqlhr7sei7ys7:_Components.Button
+              name: play_stop_button
+              properties: {text: 'Play', role: filled}
+            - type: form:dep_gqlhr7sei7ys7:_Components.Button
+              name: submit_button
+              properties: {text: 'Submit Transcription', role: filled, background: 'primary'}
+        - type: form:dep_gqlhr7sei7ys7:_Components.Column
+          name: stats_column
+          properties: {width: 6}
+          components:
+            - type: form:dep_gqlhr7sei7ys7:_Components.Text
+              name: stats_title
+              properties: {text: 'Stats', font_size: 16, bold: true}
+            - type: form:dep_gqlhr7sei7ys7:_Components.Label
+              name: stats_content
+              properties: {text: '', align: left}
+            - type: form:dep_gqlhr7sei7ys7:_Components.Text
+              name: results_title
+              properties: {text: 'Transcription Results', font_size: 16, bold: true}
+            - type: form:dep_gqlhr7sei7ys7:_Components.Label
+              name: result_container
+              properties: {text: '', align: left, visible: false}
+  layout_properties: {full_width_row: true}
+container:
+  type: ColumnPanel
+is_package: true 
