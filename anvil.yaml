@@ -43,9 +43,9 @@ db_schema:
     server: full
     title: Users
 dependencies:
-- dep_id: dep_gqlhr7sei7ys7
-  resolution_hints: {app_id: 4UK6WHQ6UX7AKELK, name: Material 3 Theme 2.0, package_name: Material_3_Theme_2_0}
-  version: {version_tag: v1.2.3}
+- dep_id: dep_x3i3kx9x6jthb
+  resolution_hints: {app_id: BZ6QPIGOFVUUSC2R, name: SaaS Template, package_name: SaaS_Template}
+  version: {branch: master}
 metadata: {description: 'For information on how to use this template, see our guide here: https://anvil.works/learn/tutorials/using-saas-template'}
 name: anvil-v6
 native_deps: null
