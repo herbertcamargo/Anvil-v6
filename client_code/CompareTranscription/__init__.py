@@ -24,3 +24,16 @@ class CompareTranscription(CompareTranscriptionTemplate):
       f"{result['stats']['incorrect']} wrong, "
       f"{result['stats']['missing']} missing"
     )
+
+  def search_button_click(self, **event_args):
+    query = self.search_box.text
+    if not query:
+      alert("Please enter a search term.")
+      return
+
+    results = anvil.server.call('search_youtube_videos', query)
+    self.results_repeater.items = results
+
+  def user_input_box_change(self, **event_args):
+    """This method is called when the text in this text area is edited"""
+    pass

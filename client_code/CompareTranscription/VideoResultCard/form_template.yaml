@@ -1,0 +1,22 @@
+components:
+- data_bindings: []
+  layout_properties: {full_width_row: false, grid_position: 'NWPYPX,RLCTKO'}
+  name: thumbnail_image
+  properties:
+    height: '100'
+    margin: ['15', '30', null, '30']
+  type: Image
+- layout_properties: {grid_position: 'KBFGJE,KOBAJB'}
+  name: title_label
+  properties:
+    align: left
+    spacing:
+      margin: ['20', '30', null, '30']
+      padding: ['5', '5', '5', '5']
+    style: label
+    visible: true
+  type: form:dep_gqlhr7sei7ys7:_Components.Text
+container:
+  event_bindings: {show: form_show}
+  type: ColumnPanel
+is_package: true

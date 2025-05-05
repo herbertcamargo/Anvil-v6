@@ -1,12 +1,33 @@
 components:
 - components:
   - components:
-    - layout_properties: {grid_position: 'HCWFHA,IGQPWO'}
-      name: official_input_box
+    - layout_properties: {grid_position: 'ZEOPWA,YNKWMN'}
+      name: search_box
       properties:
         margin: ['20', '0', '10', '10']
+        placeholder: Search for a video...
+        role: outlined
       type: TextBox
+    - event_bindings: {click: search_button_click}
+      layout_properties: {grid_position: 'ZEOPWA,BQSKNQ'}
+      name: search_button
+      properties:
+        role: outlined-button
+        spacing:
+          margin: ['20', null, '10', '0']
+          padding: ['5', '12', '5', '12']
+        text: Search
+      type: Button
+    - data_bindings:
+      - {code: 'self.item['''']', property: items, writeback: false}
+      layout_properties: {grid_position: 'PUKLKI,ZSKFQI'}
+      name: results_repeater
+      properties:
+        item_template: CompareTranscription.VideoResultCard
+        margin: [null, null, null, '10']
+      type: RepeatingPanel
     - data_bindings: []
+      event_bindings: {change: user_input_box_change}
       layout_properties: {grid_position: 'YWITLX,SIOAXT'}
       name: user_input_box
       properties:
@@ -33,14 +54,21 @@ components:
         spacing:
           margin: [null, '5', '20', '20']
       type: Label
-    layout_properties: {width: 1056.4749755859375}
+    - layout_properties: {grid_position: 'HWZASF,NDHPOZ'}
+      name: official_input_box
+      properties:
+        spacing:
+          margin: [null, '10', '10', '20']
+          padding: ['10', null, null, null]
+      type: form:dep_gqlhr7sei7ys7:_Components.Text
+    layout_properties: {width: 707.7999267578125}
     name: content_panel
     properties:
       col_spacing: medium
-      col_widths: '{}'
+      col_widths: '{"YNKWMN":45,"BQSKNQ":15}'
       spacing:
         margin: ['50', '0', '20', '20']
-        padding: ['20', '20', '20', '5']
+        padding: ['400', '20', '20', '5']
       spacing_above: small
       visible: true
     type: ColumnPanel

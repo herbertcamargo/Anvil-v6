@@ -8,6 +8,8 @@ unique_ids:
     AccountManagement.DeleteAccountAlert: '1721837905106244423974689.07706'
     Calculator: '1721838989058505303724298.55133'
     CompareTranscription: '174646641754338536707180.709564'
+    CompareTranscription.ItemTemplate1: '1746480107826340985490235.1728'
+    CompareTranscription.VideoResultCard: '1746480267085928149154972.3331'
     HomepageLayout: '172183394744075593203136.70181'
     LoginPage: '1721839338292589321602334.4054'
     StripePricing: '1721834618690651542658275.706'
@@ -22,3 +24,5 @@ unique_ids:
     TranscriptionPractice: RLBR4LPPCTNSJPGWTWI4ZGGFW76SRWWF
     TranscriptionService: '1746466221705997467306556.2155'
     Users: '1721839093380176159741914.9996'
+    transcription_comparer: '1746477570438828411351843.2603'
+    transcription_equivalents: '1746477125067991313054298.618'
