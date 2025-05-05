@@ -1,12 +1,10 @@
 import re
-from typing import Dict, List
+from typing import List, Dict
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 import anvil.server
+from .. import transcription_equivalents
 
-# Suporte a equivalências (você pode importar se preferir)
-def are_equivalent(word1: str, word2: str) -> bool:
-  return word1 == word2  # Substitua por sua lógica real se desejar
 
 @dataclass
 class Word:
@@ -27,7 +25,7 @@ class TranscriptionComparerV4Pro:
     matched_once = False
 
     while user_idx < len(user_words) and actual_idx < len(actual_words):
-      if are_equivalent(user_words[user_idx].normalized, actual_words[actual_idx].normalized):
+      if transcription_equivalents.are_equivalent(user_words[user_idx].normalized, actual_words[actual_idx].normalized):
         if not matched_once and actual_idx > 0:
           for idx in range(actual_idx):
             result.append({'text': actual_words[idx].text, 'type': 'missing'})
@@ -95,29 +93,13 @@ class TranscriptionComparerV4Pro:
               result.append({'text': w.text, 'type': 'correct'})
             return user_start_idx + user_offset + 2, full_target_start_idx + 2
 
-    user_idx, actual_idx = user_start_idx, actual_start_idx
-    while user_idx < len(user_words) and actual_idx < len(actual_words):
-      if are_equivalent(user_words[user_idx].normalized, actual_words[actual_idx].normalized):
-        if not matched_once and actual_idx > 0:
-          for idx in range(actual_start_idx, actual_idx):
-            result.append({'text': actual_words[idx].text, 'type': 'missing'})
-        result.append({'text': user_words[user_idx].text, 'type': 'correct'})
-        return user_idx + 1, actual_idx + 1
-      if self.is_mistake(user_words[user_idx].normalized, actual_words[actual_idx].normalized):
-        if not matched_once and actual_idx > 0:
-          for idx in range(actual_start_idx, actual_idx):
-            result.append({'text': actual_words[idx].text, 'type': 'missing'})
-        result.append({'text': user_words[user_idx].text, 'type': 'mistake'})
-        return user_idx + 1, actual_idx + 1
-      actual_idx += 1
-
     return user_start_idx, actual_start_idx
 
   def generate_dubles(self, words: List[Word]) -> List[List[Word]]:
     return [[words[i], words[i + 1]] for i in range(len(words) - 1)]
 
   def are_dubles_equivalent(self, duble1: List[Word], duble2: List[Word]) -> bool:
-    return all(are_equivalent(w1.normalized, w2.normalized) for w1, w2 in zip(duble1, duble2))
+    return all(transcription_equivalents.are_equivalent(w1.normalized, w2.normalized) for w1, w2 in zip(duble1, duble2))
 
   def fill_field_gaps(self, user_gap: List[Word], actual_gap: List[Word], result: List[Dict[str, str]]):
     user_used = [False] * len(user_gap)
@@ -125,7 +107,7 @@ class TranscriptionComparerV4Pro:
     for aw in actual_gap:
       matched = False
       for i, uw in enumerate(user_gap):
-        if not user_used[i] and are_equivalent(uw.normalized, aw.normalized):
+        if not user_used[i] and transcription_equivalents.are_equivalent(uw.normalized, aw.normalized):
           result.append({'text': uw.text, 'type': 'correct'})
           user_used[i] = True
           matched = True
@@ -147,11 +129,13 @@ class TranscriptionComparerV4Pro:
   def is_mistake(self, user_norm: str, actual_norm: str) -> bool:
     return SequenceMatcher(None, user_norm, actual_norm).ratio() >= self.mistake_threshold
 
+
 def normalize_text(text):
   text = re.sub(r'\[.*?\]', '', text)
   text = re.sub(r'[^\w\s]', '', text)
   text = re.sub(r'\s+', ' ', text).strip().lower()
   return text
+
 
 @anvil.server.callable
 def validate_transcription(user_input: str, actual_transcript: str, timestamps: List[float] = None) -> List[Dict[str, str]]:
@@ -165,3 +149,45 @@ def validate_transcription(user_input: str, actual_transcript: str, timestamps: 
 
   comparer = TranscriptionComparerV4Pro()
   return comparer.compare(user_words, actual_words)
+
+
+@anvil.server.callable
+def compare_transcriptions(user_input: str, official_transcript: str):
+  result = validate_transcription(user_input, official_transcript)
+
+  html = ""
+  correct = 0
+  mistake = 0
+  missing = 0
+  wrong = 0
+
+  for entry in result:
+    word = entry["text"]
+    wtype = entry["type"]
+    if wtype == "correct":
+      html += f"<span style='color:green'>{word}</span> "
+      correct += 1
+    elif wtype == "mistake":
+      html += f"<span style='color:orange'>{word}</span> "
+      mistake += 1
+    elif wtype == "missing":
+      html += f"<span style='color:blue'>{word}</span> "
+      missing += 1
+    elif wtype == "wrong":
+      html += f"<span style='color:red'>{word}</span> "
+      wrong += 1
+    else:
+      html += word + " "
+
+  total_attempted = correct + mistake + wrong
+  accuracy = round(100 * correct / total_attempted, 1) if total_attempted else 0.0
+
+  return {
+    "html": html.strip(),
+    "stats": {
+      "accuracy": accuracy,
+      "correct": correct,
+      "incorrect": mistake + wrong,
+      "missing": missing
+    }
+  }
