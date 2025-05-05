@@ -47,9 +47,9 @@ dependencies:
   resolution_hints: {app_id: 4UK6WHQ6UX7AKELK, name: Material 3 Theme 2.0, package_name: Material_3_Theme_2_0}
   version: {version_tag: v1.2.3}
 metadata: {description: 'For information on how to use this template, see our guide here: https://anvil.works/learn/tutorials/using-saas-template'}
-name: SaaS Template
+name: anvil-v6
 native_deps: null
-package_name: SaaS_Template
+package_name: anvil_v6
 renamed: true
 runtime_options:
   client_version: '3'
