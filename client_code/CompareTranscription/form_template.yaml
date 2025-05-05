@@ -1,0 +1,43 @@
+components:
+- components:
+  - components: []
+    layout_properties: {width: 132}
+    name: content_panel
+    properties:
+      col_widths: '{}'
+      spacing:
+        margin: ['50', 0, '20', null]
+        padding: [null, null, '200', null]
+      visible: true
+    type: ColumnPanel
+  - data_bindings: []
+    name: user_input_box
+    properties:
+      height: '100'
+      margin: [null, null, null, '20']
+    type: TextArea
+  - name: comparison_output
+    properties:
+      spacing:
+        margin: [null, null, null, '20']
+    type: RichText
+  - name: compare_button
+    properties:
+      spacing:
+        margin: [null, null, null, '20']
+      text: button_1
+    type: Button
+  - name: official_input_box
+    properties:
+      margin: ['20', null, '10', '20']
+    type: TextBox
+  layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties:
+    spacing:
+      margin: ['20', '50', null, '50']
+  type: FlowPanel
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

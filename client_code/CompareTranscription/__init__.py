@@ -1,0 +1,12 @@
+from ._anvil_designer import CompareTranscriptionTemplate
+from anvil import *
+import anvil.server
+import anvil.users
+
+
+class CompareTranscription(CompareTranscriptionTemplate):
+  def __init__(self, **properties):
+    # Set Form properties and Data Bindings.
+    self.init_components(**properties)
+
+    # Any code you write here will run before the form opens.

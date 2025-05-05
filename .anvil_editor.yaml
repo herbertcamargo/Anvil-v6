@@ -7,14 +7,17 @@ unique_ids:
     AccountManagement.ChangeName: '172183784474318367276267.26542'
     AccountManagement.DeleteAccountAlert: '1721837905106244423974689.07706'
     Calculator: '1721838989058505303724298.55133'
+    CompareTranscription: '174646641754338536707180.709564'
     HomepageLayout: '172183394744075593203136.70181'
     LoginPage: '1721839338292589321602334.4054'
     StripePricing: '1721834618690651542658275.706'
-    TranscriptionPractice: 'auto-generated-id-TranscriptionPractice'
+    TranscriptionPractice: auto-generated-id-TranscriptionPractice
   modules:
     user_permissions: '1721839019330205569959987.51782'
   scripts: {}
   server_modules:
     Product: '1721839103861525202133101.95264'
     StripeFunctions: '1721839056586406793254106.41296'
+    TranscriptionPractice: RLBR4LPPCTNSJPGWTWI4ZGGFW76SRWWF
+    TranscriptionService: '1746466221705997467306556.2155'
     Users: '1721839093380176159741914.9996'
