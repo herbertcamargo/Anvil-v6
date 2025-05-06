@@ -17,4 +17,4 @@ class VideoResultCard(VideoResultCardTemplate):
     pass
 
   def click(self, **event_args):
-    open_form("TranscriptionPractice", video_id=self.item["video_id"])
+    open_form("CompareTranscription", video_id=self.item["video_id"])

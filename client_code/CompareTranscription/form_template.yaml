@@ -1,6 +1,11 @@
 components:
 - components:
   - components:
+    - layout_properties: {grid_position: 'HTBGFT,WTLTFI'}
+      name: language_dropdown
+      properties:
+        margin: [null, '200', null, '200']
+      type: form:dep_gqlhr7sei7ys7:_Components.DropdownMenu
     - layout_properties: {grid_position: 'ZEOPWA,YNKWMN'}
       name: search_box
       properties:
@@ -61,7 +66,7 @@ components:
           margin: [null, '10', '10', '20']
           padding: ['10', null, null, null]
       type: form:dep_gqlhr7sei7ys7:_Components.Text
-    layout_properties: {width: 707.7999267578125}
+    layout_properties: {width: 620.8892290039063}
     name: content_panel
     properties:
       col_spacing: medium

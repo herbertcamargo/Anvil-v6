@@ -20,7 +20,7 @@ class LoginPage(LoginPageTemplate):
     user = anvil.users.login_with_form(allow_cancel=True, show_signup_option=True, allow_remembered=True)
     if user:
       if user.get('subscription') and user['subscription'].lower() != 'free':
-        open_form('TranscriptionPractice')
+        open_form('CompareTranscription')
       else:
         open_form('StripePricing')
 
@@ -29,7 +29,7 @@ class LoginPage(LoginPageTemplate):
     user = anvil.users.get_user()
     if user:
       if user.get('subscription') and user['subscription'].lower() != 'free':
-        open_form('TranscriptionPractice')
+        open_form('CompareTranscription')
       else:
         open_form('StripePricing')
     else:

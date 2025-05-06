@@ -13,7 +13,6 @@ unique_ids:
     HomepageLayout: '172183394744075593203136.70181'
     LoginPage: '1721839338292589321602334.4054'
     StripePricing: '1721834618690651542658275.706'
-    TranscriptionPractice: auto-generated-id-TranscriptionPractice
   modules:
     user_permissions: '1721839019330205569959987.51782'
   scripts: {}
@@ -21,7 +20,6 @@ unique_ids:
     Product: '1721839103861525202133101.95264'
     StripeFunctions: '1721839056586406793254106.41296'
     TranscriptionAdvanced: '1746475191680535685698813.86475'
-    TranscriptionPractice: RLBR4LPPCTNSJPGWTWI4ZGGFW76SRWWF
     TranscriptionService: '1746466221705997467306556.2155'
     Users: '1721839093380176159741914.9996'
     transcription_comparer: '1746477570438828411351843.2603'
