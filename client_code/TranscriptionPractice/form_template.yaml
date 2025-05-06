@@ -39,79 +39,14 @@ components:
     role: outlined
   type: form:dep_gqlhr7sei7ys7:_Components.Card
 - components:
-  - components:
-    - components:
-      - name: video_title
-        properties: {bold: true, font_size: 16, text: Video Title}
-        type: form:dep_gqlhr7sei7ys7:_Components.Text
-      - name: video_player_panel
-        properties: {height: 315}
-        type: form:dep_gqlhr7sei7ys7:_Components.HtmlPanel
-      name: video_column
-      properties: {width: 6}
-      type: form:dep_gqlhr7sei7ys7:_Components.Column
-    - components:
-      - name: transcription_title
-        properties: {bold: true, font_size: 16, text: Transcription}
-        type: form:dep_gqlhr7sei7ys7:_Components.Text
-      - name: transcription_input
-        properties: {placeholder: Type your transcription here..., rows: 10}
-        type: form:dep_gqlhr7sei7ys7:_Components.TextArea
-      name: transcription_column
-      properties: {width: 6}
-      type: form:dep_gqlhr7sei7ys7:_Components.Column
+  - layout_properties: {slot: card-content-slot}
     name: video_transcription_columns
-    properties: {spacing_above: small, spacing_below: small}
-    type: form:dep_gqlhr7sei7ys7:_Components.ColumnPanel
-  - components:
-    - components:
-      - name: pause_delay_label
-        properties: {text: Pause Delay}
-        type: form:dep_gqlhr7sei7ys7:_Components.Text
-      - name: pause_delay_dropdown
-        properties:
-          items: [0 seconds, 1 second, 2 seconds, 3 seconds, 5 seconds]
-          selected_value: 0 seconds
-        type: form:dep_gqlhr7sei7ys7:_Components.Dropdown
-      - name: rewind_time_label
-        properties: {text: Rewind Time}
-        type: form:dep_gqlhr7sei7ys7:_Components.Text
-      - name: rewind_time_dropdown
-        properties:
-          items: [0.0 seconds, 0.25 seconds, 0.5 seconds, 0.75 seconds, 1 second, 1.5 seconds, 2 seconds, 3 seconds, 5 seconds, 8 seconds, 10 seconds]
-          selected_value: 0.0 seconds
-        type: form:dep_gqlhr7sei7ys7:_Components.Dropdown
-      - name: rewind_button
-        properties: {role: outlined, text: Rewind}
-        type: form:dep_gqlhr7sei7ys7:_Components.Button
-      - name: play_stop_button
-        properties: {role: filled, text: Play}
-        type: form:dep_gqlhr7sei7ys7:_Components.Button
-      - name: submit_button
-        properties: {background: primary, role: filled, text: Submit Transcription}
-        type: form:dep_gqlhr7sei7ys7:_Components.Button
-      name: controls_column
-      properties: {width: 6}
-      type: form:dep_gqlhr7sei7ys7:_Components.Column
-    - components:
-      - name: stats_title
-        properties: {bold: true, font_size: 16, text: Stats}
-        type: form:dep_gqlhr7sei7ys7:_Components.Text
-      - name: stats_content
-        properties: {align: left, text: ''}
-        type: form:dep_gqlhr7sei7ys7:_Components.Label
-      - name: results_title
-        properties: {bold: true, font_size: 16, text: Transcription Results}
-        type: form:dep_gqlhr7sei7ys7:_Components.Text
-      - name: result_container
-        properties: {align: left, text: '', visible: false}
-        type: form:dep_gqlhr7sei7ys7:_Components.Label
-      name: stats_column
-      properties: {width: 6}
-      type: form:dep_gqlhr7sei7ys7:_Components.Column
+    properties: {visible: false}
+    type: ColumnPanel
+  - layout_properties: {slot: card-content-slot}
     name: controls_stats_panel
-    properties: {spacing_above: small, spacing_below: small}
-    type: form:dep_gqlhr7sei7ys7:_Components.ColumnPanel
+    properties: {}
+    type: ColumnPanel
   layout_properties: {full_width_row: true}
   name: video_transcription_card
   properties:
