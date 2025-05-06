@@ -77,3 +77,7 @@ class TranscriptionPractice(TranscriptionPracticeTemplate):
           Notification("You need an active subscription to access this page.", timeout=3).show()
           open_form('StripePricing')
           return
+
+  def language_dropdown_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
