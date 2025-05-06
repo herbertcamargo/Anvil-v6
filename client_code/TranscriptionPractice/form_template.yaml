@@ -47,6 +47,7 @@ components:
     name: controls_stats_panel
     properties: {}
     type: ColumnPanel
+  event_bindings: {show: video_transcription_card_show}
   layout_properties: {full_width_row: true}
   name: video_transcription_card
   properties:
@@ -55,4 +56,5 @@ components:
     visible: false
   type: form:dep_gqlhr7sei7ys7:_Components.Card
 container: {type: ColumnPanel}
+custom_component: true
 is_package: true

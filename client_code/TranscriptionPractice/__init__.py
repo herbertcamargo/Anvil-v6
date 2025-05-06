@@ -81,3 +81,7 @@ class TranscriptionPractice(TranscriptionPracticeTemplate):
   def language_dropdown_change(self, **event_args):
     """This method is called when an item is selected"""
     pass
+
+  def video_transcription_card_show(self, **event_args):
+    """This method is called when the component is shown on the screen."""
+    pass

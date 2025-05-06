@@ -63,5 +63,5 @@ class SmartComparer:
     }
 
 @anvil.server.callable
-def compare_transcriptions(user_text, official_text):
+def compare_transcriptions_simple(user_text, official_text):
   return SmartComparer(user_text, official_text).compare()

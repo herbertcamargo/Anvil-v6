@@ -154,7 +154,7 @@ def normalize_text(text):
   return text
 
 @anvil.server.callable
-def validate_transcription(user_input: str, actual_transcript: str, timestamps: List[float] = None) -> List[Dict[str, str]]:
+def validate_transcription_advanced(user_input: str, actual_transcript: str, timestamps: List[float] = None) -> List[Dict[str, str]]:
   if timestamps is None:
     words = actual_transcript.split()
     total_duration = len(words) / 2

@@ -6,7 +6,7 @@ import re
 YOUTUBE_API_KEY = 'AIzaSyAhj_M7HmHGlsEU8WK-NmOAKbGbhxs_ua8'  # TODO: Move to secrets
 
 @anvil.server.callable
-def search_youtube_videos(query, max_results=10):
+def search_youtube_videos_practice(query, max_results=10):
     """Search YouTube for videos matching the query."""
     url = 'https://www.googleapis.com/youtube/v3/search'
     params = {
@@ -31,7 +31,7 @@ def search_youtube_videos(query, max_results=10):
     return videos
 
 @anvil.server.callable
-def get_video_details_and_transcript(video_id, language='en'):
+def get_video_details_and_transcript_practice(video_id, language='en'):
     """Fetch video details and transcript."""
     # Fetch video details
     url = 'https://www.googleapis.com/youtube/v3/videos'
@@ -73,7 +73,7 @@ def normalize_text(text):
     return text
 
 @anvil.server.callable
-def compare_transcriptions(user_transcription, actual_transcript):
+def compare_transcriptions_basic(user_transcription, actual_transcript):
     """Compare user transcription to actual transcript and return stats/results."""
     user_words = normalize_text(user_transcription).split()
     actual_words = normalize_text(actual_transcript).split()
